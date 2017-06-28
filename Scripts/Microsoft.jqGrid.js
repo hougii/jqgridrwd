@@ -100,7 +100,7 @@ function jqGridResize() {
             //screen and (min-width: 1501px) =1500
             var nowwidth = $(window).width(); //$(item).width();
             var contentwidth =$(window).width();// $(".body-content").width();
-            var bodywidth = $(".panel-body").width();
+            var bodywidth = $(window).width();//$(".panel-body").width();
             var gridwidth = $(item).jqGrid('getGridParam', 'width'); // get current width
             if (bodywidth != null && bodywidth < contentwidth)
                 contentwidth = bodywidth;
