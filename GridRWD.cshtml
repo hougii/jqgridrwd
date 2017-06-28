@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "GridRWD";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GridRWD</h2>
+
+<!-- 一般表格 -->
+<div class="jqGrid">
+    <table id="QueryResult" style="display: none">
+    </table>
+</div>
+<div id="QueryResultpagger"></div>
+
+@section Scripts{
+    
+
+    <script>
+        var mydata = "{\"HERRID\":\"0000\","+
+       " \"RESULT\":[" +
+       "{\"SPRefId\":\"00001\",\"AcctId\":\"W111122223\",\"FmtType\":\"1\",\"SubAcctId\":\"001220521261\",\"AccType1\":\"\",\"AcctBal0\":\"$842,744\",\"AvailBal0\":\"$842,744\",\"OverBal0\":\"0.00\",\"OpenDate\":\"2015/09/29\",\"BranchID\":\"001\",\"BranchID4\":\"0010\",\"BranchName\":\"營業部\",\"FmtTypeName\":\"活期存款\",\"AccType1Name\":\"一般戶\",\"SubAcctType\":\"22\",\"SubAcctTypeName\":\"活期儲蓄存款\",\"BranchDisplay\":\"0010-營業部\"}," +
+       "{\"SPRefId\":\"00002\",\"AcctId\":\"W111122223\",\"FmtType\":\"1\",\"SubAcctId\":\"003228009295\",\"AccType1\":\"\",\"AcctBal0\":\"$4,835,567\",\"AvailBal0\":\"$4,835,567\",\"OverBal0\":\"0.00\",\"OpenDate\":\"2015/09/29\",\"BranchID\":\"003\",\"BranchID4\":\"0032\",\"BranchName\":\"台南分行\",\"FmtTypeName\":\"活期存款\",\"AccType1Name\":\"一般戶\",\"SubAcctType\":\"22\",\"SubAcctTypeName\":\"活期儲蓄存款\",\"BranchDisplay\":\"0032-台南分行\"}," +
+       "{\"SPRefId\":\"00001\",\"AcctId\":\"W111122223\",\"FmtType\":\"1\",\"SubAcctId\":\"001220521261\",\"AccType1\":\"\",\"AcctBal0\":\"$842,744\",\"AvailBal0\":\"$842,744\",\"OverBal0\":\"0.00\",\"OpenDate\":\"2015/09/29\",\"BranchID\":\"001\",\"BranchID4\":\"0010\",\"BranchName\":\"營業部\",\"FmtTypeName\":\"活期存款\",\"AccType1Name\":\"一般戶\",\"SubAcctType\":\"22\",\"SubAcctTypeName\":\"活期儲蓄存款\",\"BranchDisplay\":\"0010-營業部\"}," +
+       "{\"SPRefId\":\"00002\",\"AcctId\":\"W111122223\",\"FmtType\":\"1\",\"SubAcctId\":\"003228009295\",\"AccType1\":\"\",\"AcctBal0\":\"$4,835,567\",\"AvailBal0\":\"$4,835,567\",\"OverBal0\":\"0.00\",\"OpenDate\":\"2015/09/29\",\"BranchID\":\"003\",\"BranchID4\":\"0032\",\"BranchName\":\"台南分行\",\"FmtTypeName\":\"活期存款\",\"AccType1Name\":\"一般戶\",\"SubAcctType\":\"22\",\"SubAcctTypeName\":\"活期儲蓄存款\",\"BranchDisplay\":\"0032-台南分行\"}," +
+       "{\"SPRefId\":\"00001\",\"AcctId\":\"W111122223\",\"FmtType\":\"1\",\"SubAcctId\":\"001220521261\",\"AccType1\":\"\",\"AcctBal0\":\"$842,744\",\"AvailBal0\":\"$842,744\",\"OverBal0\":\"0.00\",\"OpenDate\":\"2015/09/29\",\"BranchID\":\"001\",\"BranchID4\":\"0010\",\"BranchName\":\"營業部\",\"FmtTypeName\":\"活期存款\",\"AccType1Name\":\"一般戶\",\"SubAcctType\":\"22\",\"SubAcctTypeName\":\"活期儲蓄存款\",\"BranchDisplay\":\"0010-營業部\"}," +
+       "{\"SPRefId\":\"00002\",\"AcctId\":\"W111122223\",\"FmtType\":\"1\",\"SubAcctId\":\"003228009295\",\"AccType1\":\"\",\"AcctBal0\":\"$4,835,567\",\"AvailBal0\":\"$4,835,567\",\"OverBal0\":\"0.00\",\"OpenDate\":\"2015/09/29\",\"BranchID\":\"003\",\"BranchID4\":\"0032\",\"BranchName\":\"台南分行\",\"FmtTypeName\":\"活期存款\",\"AccType1Name\":\"一般戶\",\"SubAcctType\":\"22\",\"SubAcctTypeName\":\"活期儲蓄存款\",\"BranchDisplay\":\"0032-台南分行\"}," +
+       "{\"SPRefId\":\"00001\",\"AcctId\":\"W111122223\",\"FmtType\":\"1\",\"SubAcctId\":\"001220521261\",\"AccType1\":\"\",\"AcctBal0\":\"$842,744\",\"AvailBal0\":\"$842,744\",\"OverBal0\":\"0.00\",\"OpenDate\":\"2015/09/29\",\"BranchID\":\"001\",\"BranchID4\":\"0010\",\"BranchName\":\"營業部\",\"FmtTypeName\":\"活期存款\",\"AccType1Name\":\"一般戶\",\"SubAcctType\":\"22\",\"SubAcctTypeName\":\"活期儲蓄存款\",\"BranchDisplay\":\"0010-營業部\"}," +
+       "{\"SPRefId\":\"00002\",\"AcctId\":\"W111122223\",\"FmtType\":\"1\",\"SubAcctId\":\"003228009295\",\"AccType1\":\"\",\"AcctBal0\":\"$4,835,567\",\"AvailBal0\":\"$4,835,567\",\"OverBal0\":\"0.00\",\"OpenDate\":\"2015/09/29\",\"BranchID\":\"003\",\"BranchID4\":\"0032\",\"BranchName\":\"台南分行\",\"FmtTypeName\":\"活期存款\",\"AccType1Name\":\"一般戶\",\"SubAcctType\":\"22\",\"SubAcctTypeName\":\"活期儲蓄存款\",\"BranchDisplay\":\"0032-台南分行\"}," +
+       "{\"SPRefId\":\"00001\",\"AcctId\":\"W111122223\",\"FmtType\":\"1\",\"SubAcctId\":\"001220521261\",\"AccType1\":\"\",\"AcctBal0\":\"$842,744\",\"AvailBal0\":\"$842,744\",\"OverBal0\":\"0.00\",\"OpenDate\":\"2015/09/29\",\"BranchID\":\"001\",\"BranchID4\":\"0010\",\"BranchName\":\"營業部\",\"FmtTypeName\":\"活期存款\",\"AccType1Name\":\"一般戶\",\"SubAcctType\":\"22\",\"SubAcctTypeName\":\"活期儲蓄存款\",\"BranchDisplay\":\"0010-營業部\"}," +
+       "{\"SPRefId\":\"00002\",\"AcctId\":\"W111122223\",\"FmtType\":\"1\",\"SubAcctId\":\"003228009295\",\"AccType1\":\"\",\"AcctBal0\":\"$4,835,567\",\"AvailBal0\":\"$4,835,567\",\"OverBal0\":\"0.00\",\"OpenDate\":\"2015/09/29\",\"BranchID\":\"003\",\"BranchID4\":\"0032\",\"BranchName\":\"台南分行\",\"FmtTypeName\":\"活期存款\",\"AccType1Name\":\"一般戶\",\"SubAcctType\":\"22\",\"SubAcctTypeName\":\"活期儲蓄存款\",\"BranchDisplay\":\"0032-台南分行\"}," +
+       "{\"SPRefId\":\"00001\",\"AcctId\":\"W111122223\",\"FmtType\":\"1\",\"SubAcctId\":\"001220521261\",\"AccType1\":\"\",\"AcctBal0\":\"$842,744\",\"AvailBal0\":\"$842,744\",\"OverBal0\":\"0.00\",\"OpenDate\":\"2015/09/29\",\"BranchID\":\"001\",\"BranchID4\":\"0010\",\"BranchName\":\"營業部\",\"FmtTypeName\":\"活期存款\",\"AccType1Name\":\"一般戶\",\"SubAcctType\":\"22\",\"SubAcctTypeName\":\"活期儲蓄存款\",\"BranchDisplay\":\"0010-營業部\"}," +
+       "{\"SPRefId\":\"00002\",\"AcctId\":\"W111122223\",\"FmtType\":\"1\",\"SubAcctId\":\"003228009295\",\"AccType1\":\"\",\"AcctBal0\":\"$4,835,567\",\"AvailBal0\":\"$4,835,567\",\"OverBal0\":\"0.00\",\"OpenDate\":\"2015/09/29\",\"BranchID\":\"003\",\"BranchID4\":\"0032\",\"BranchName\":\"台南分行\",\"FmtTypeName\":\"活期存款\",\"AccType1Name\":\"一般戶\",\"SubAcctType\":\"22\",\"SubAcctTypeName\":\"活期儲蓄存款\",\"BranchDisplay\":\"0032-台南分行\"}," +
+       "{\"SPRefId\":\"00001\",\"AcctId\":\"W111122223\",\"FmtType\":\"1\",\"SubAcctId\":\"001220521261\",\"AccType1\":\"\",\"AcctBal0\":\"$842,744\",\"AvailBal0\":\"$842,744\",\"OverBal0\":\"0.00\",\"OpenDate\":\"2015/09/29\",\"BranchID\":\"001\",\"BranchID4\":\"0010\",\"BranchName\":\"營業部\",\"FmtTypeName\":\"活期存款\",\"AccType1Name\":\"一般戶\",\"SubAcctType\":\"22\",\"SubAcctTypeName\":\"活期儲蓄存款\",\"BranchDisplay\":\"0010-營業部\"}," +
+       "{\"SPRefId\":\"00002\",\"AcctId\":\"W111122223\",\"FmtType\":\"1\",\"SubAcctId\":\"003228009295\",\"AccType1\":\"\",\"AcctBal0\":\"$4,835,567\",\"AvailBal0\":\"$4,835,567\",\"OverBal0\":\"0.00\",\"OpenDate\":\"2015/09/29\",\"BranchID\":\"003\",\"BranchID4\":\"0032\",\"BranchName\":\"台南分行\",\"FmtTypeName\":\"活期存款\",\"AccType1Name\":\"一般戶\",\"SubAcctType\":\"22\",\"SubAcctTypeName\":\"活期儲蓄存款\",\"BranchDisplay\":\"0032-台南分行\"}," +
+       "{\"SPRefId\":\"00001\",\"AcctId\":\"W111122223\",\"FmtType\":\"1\",\"SubAcctId\":\"001220521261\",\"AccType1\":\"\",\"AcctBal0\":\"$842,744\",\"AvailBal0\":\"$842,744\",\"OverBal0\":\"0.00\",\"OpenDate\":\"2015/09/29\",\"BranchID\":\"001\",\"BranchID4\":\"0010\",\"BranchName\":\"營業部\",\"FmtTypeName\":\"活期存款\",\"AccType1Name\":\"一般戶\",\"SubAcctType\":\"22\",\"SubAcctTypeName\":\"活期儲蓄存款\",\"BranchDisplay\":\"0010-營業部\"}," +
+       "{\"SPRefId\":\"00002\",\"AcctId\":\"W111122223\",\"FmtType\":\"1\",\"SubAcctId\":\"003228009295\",\"AccType1\":\"\",\"AcctBal0\":\"$4,835,567\",\"AvailBal0\":\"$4,835,567\",\"OverBal0\":\"0.00\",\"OpenDate\":\"2015/09/29\",\"BranchID\":\"003\",\"BranchID4\":\"0032\",\"BranchName\":\"台南分行\",\"FmtTypeName\":\"活期存款\",\"AccType1Name\":\"一般戶\",\"SubAcctType\":\"22\",\"SubAcctTypeName\":\"活期儲蓄存款\",\"BranchDisplay\":\"0032-台南分行\"}" +
+       "],\"Total\":[{\"Currency\":\"NT\",\"Count\":16,\"Amount\":\"$5,678,311\"}]}";
+        $(function () {
+            callBindGrid(mydata);
+        });
+      //處理JQGird Local Bind
+        function callBindGrid(data) {
+            var jsonData = JSON.parse(data);
+            $("#QueryResult").show();
+            $("#QueryResult").jqGrid({
+                data: jsonData.RESULT,
+                datatype: "local",
+                pager: "#QueryResultpagger",
+                rowList: [10, 20, 30],
+                colNames: ["", "", "分行別", "開戶日期", "帳戶別", "帳號", "帳戶餘額", "可用餘額"],
+                colModel: [
+              { name: "", hidden: true },//指定它是unique row no
+               { name: "SubAcctId", index: "SubAcctId", hidden: true },
+              { name: "BranchDisplay", index: "BranchDisplay", align: 'center' },
+              { name: "OpenDate", index: "OpenDate", align: 'center' },
+              { name: "SubAcctTypeName", index: "SubAcctTypeName", align: 'center' },
+              { name: "SubAcctIdLink", index: "SubAcctId", align: 'center' },
+              { name: "AcctBal0", index: "AcctBal0", align: 'right' },
+              { name: "AvailBal0", index: "AvailBal0", align: 'right' }
+                ]
+            });
+            //重新載入ReBind
+            $('#QueryResult').jqGrid('clearGridData');
+            $('#QueryResult').jqGrid('setGridParam', { data: jsonData.RESULT });
+            $('#QueryResult').trigger('reloadGrid');                      
+
+        }
+      
+        </script>
+    }
+
