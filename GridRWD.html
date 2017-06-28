@@ -1,23 +1,27 @@
-﻿
-@{
-    ViewBag.Title = "GridRWD";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Grid RWD Sample</title>
+    <link href="Contents/grid-Microsoft.CUF.css" rel="stylesheet" />     
+    <link href="Contents/grid-mobile.less" rel="stylesheet" />      
+    <script src="Scripts/jquery-2.1.0.js"></script>
+    <script src="Scripts/jquery.jqGrid.src.js"></script>
+    <script src="Scripts/grid.locale-zh.js"></script>
+    <script src="Scripts/Microsoft.Common.js"></script>
 
-<h2>GridRWD</h2>
+    </head>
 
-<!-- 一般表格 -->
-<div class="jqGrid">
-    <table id="QueryResult" style="display: none">
-    </table>
-</div>
-<div id="QueryResultpagger"></div>
+<body>
+    <h2>GridRWD</h2>
 
-@section Scripts{
-    
+    <!-- 一般表格 -->
+    <div class="jqGrid">
+        <table id="QueryResult" style="display: none"></table>
+    </div>
+    <div id="QueryResultpagger"></div>
 
     <script>
-        var mydata = "{\"HERRID\":\"0000\","+
+        var mydata = "{\"HERRID\":\"0000\"," +
        " \"RESULT\":[" +
        "{\"SPRefId\":\"00001\",\"AcctId\":\"W111122223\",\"FmtType\":\"1\",\"SubAcctId\":\"001220521261\",\"AccType1\":\"\",\"AcctBal0\":\"$842,744\",\"AvailBal0\":\"$842,744\",\"OverBal0\":\"0.00\",\"OpenDate\":\"2015/09/29\",\"BranchID\":\"001\",\"BranchID4\":\"0010\",\"BranchName\":\"營業部\",\"FmtTypeName\":\"活期存款\",\"AccType1Name\":\"一般戶\",\"SubAcctType\":\"22\",\"SubAcctTypeName\":\"活期儲蓄存款\",\"BranchDisplay\":\"0010-營業部\"}," +
        "{\"SPRefId\":\"00002\",\"AcctId\":\"W111122223\",\"FmtType\":\"1\",\"SubAcctId\":\"003228009295\",\"AccType1\":\"\",\"AcctBal0\":\"$4,835,567\",\"AvailBal0\":\"$4,835,567\",\"OverBal0\":\"0.00\",\"OpenDate\":\"2015/09/29\",\"BranchID\":\"003\",\"BranchID4\":\"0032\",\"BranchName\":\"台南分行\",\"FmtTypeName\":\"活期存款\",\"AccType1Name\":\"一般戶\",\"SubAcctType\":\"22\",\"SubAcctTypeName\":\"活期儲蓄存款\",\"BranchDisplay\":\"0032-台南分行\"}," +
@@ -39,7 +43,7 @@
         $(function () {
             callBindGrid(mydata);
         });
-      //處理JQGird Local Bind
+        //處理JQGird Local Bind
         function callBindGrid(data) {
             var jsonData = JSON.parse(data);
             $("#QueryResult").show();
@@ -63,10 +67,11 @@
             //重新載入ReBind
             $('#QueryResult').jqGrid('clearGridData');
             $('#QueryResult').jqGrid('setGridParam', { data: jsonData.RESULT });
-            $('#QueryResult').trigger('reloadGrid');                      
+            $('#QueryResult').trigger('reloadGrid');
 
         }
-      
-        </script>
-    }
 
+    </script>
+
+</body>
+</html>
